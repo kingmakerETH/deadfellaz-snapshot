@@ -1,6 +1,15 @@
-type ExampleEntity @entity {
-  id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+{
+  firstBatch: users(first: 1000, where: {amount_gt: 0}) {
+    id
+    amount
+  }
+  secondBatch: users(first: 1000, skip:1000, where: {amount_gt: 0}) {
+    id
+    amount
+  }
 }
+#    users(first:1000, skip:1000, where: {amount_gt: 0}) {
+#     id
+#     amount
+#   }
+# }
